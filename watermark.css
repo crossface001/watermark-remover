@@ -1,0 +1,61 @@
+body {
+    background-color: #333;
+    color: white;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+header {
+    padding: 0.5em;
+    background-color: #222;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+header div {
+    margin: 0.5em;
+}
+img, canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#watermark {
+   /*z-index: 1; */
+}
+div#imageContainer {
+    position: relative;
+    margin: auto;
+}
+label, button {
+    padding: 0.3em;
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-right: 1em;
+    color: white;
+    background-color: #222;
+}
+header div input {
+    color: white;
+    background-color: #333;
+    width: 3em;
+}
+#topbar input {
+    display: none;
+}
+div#window {
+    border: 2px solid #54afff;
+    position: absolute;
+    display: block;
+    box-shadow: 0 0 15px 5px black;
+    z-index: 1;
+}
+div#windowSize {
+    display: block;
+    border: 5px solid #54afff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+    z-index: 2;
+}

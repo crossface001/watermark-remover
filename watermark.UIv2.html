@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Watermark Remover</title>
+        <link rel="stylesheet" href="watermark.UIv2.css" type="text/css">
+    </head>
+    <body>
+        <div class="left">
+            <h2 style="height: 2em;"> Watermark Remover <br /> v1.0 </h1>
+            <div class="option multiple">
+                <div class="optiontitle">Load image file(s)</div>
+                <small>Drag-and-dropping images is also supported.</small>
+                <input type="file" id="inputImage" multiple class="optionbox" />
+            </div>
+            <div class="option multiple">
+                <div class="optiontitle">Load watermark file</div>
+                <input type="file" id="inputWatermark" class="optionbox" />
+            </div>
+            <div class="optionscontainer">
+                <div class="option multiple">
+                    <div class="optiontitle">Default watermark position</div>
+                    <select id="defaultPosition" class="optionbox">
+                        <option value="top-left">Top Left</option>
+                        <option value="top-right">Top Right</option>
+                        <option value="center">Center</option>
+                        <option value="bottom-left">Bottom Left</option>
+                        <option value="bottom-right">Bottom Right</option>
+                    </select>
+                </div>
+                <div class="option multiple">
+                    <div class="optiontitle">Preview blending mode</div>
+                    <select id="overlayMode" class="optionbox">
+                        <option value="normal">Normal</option>
+                        <option value="difference">Difference</option>
+                    </select>
+                </div>
+                <div class="option multiple">
+                    <div class="optiontitle">
+                        Preview contrast
+                        <span onclick="resetFilter('previewContrast')">↺</span>
+                        </div>
+                    <input type="range" id="previewContrast" max="10" min="0" step="0.1" value="1" class="optionbox">
+                </div>
+                <div class="option multiple">
+                    <div class="optiontitle">
+                        Preview brightness
+                        <span onclick="resetFilter('previewBrightness')">↺</span>
+                    </div>
+                    <input type="range" id="previewBrightness" max="2" min="0" step="0.05" value="1" class="optionbox">
+                </div>
+                <div class="option single">
+                    <div class="optiontitle">Transparency threshold</div>
+                    <input type="number" id="transparencyThreshold" max="255" min="0" value="5" class="optionbox">
+                    <small>0 = fully transparent, 255 = fully opaque</small>
+                </div>
+                <div class="option single">
+                    <div class="optiontitle">Opaque smoothing</div>
+                    <input type="number" id="opaqueThreshold" max="255" min="0" value="240" class="optionbox">
+                    <small>0 = every pixel, 255 = no pixels</small>
+                </div>
+                <div class="option single">
+                    <div class="optiontitle">Confirm results</div>
+                    <input type="checkbox" id="preview" class="optionbox">
+                </div>
+                <div class="option single">
+                    <div class="optiontitle">Automatic subpixel alignment</div>
+                    <input type="checkbox" id="autoSubpixel" class="optionbox">
+                </div>
+                <div class="option single" style="display: none;">
+                    <div class="optiontitle">Replace Edges</div>
+                    <input type="checkbox" id="smoothEdges" class="optionbox">
+                </div>
+                <div class="option single" style="display: none;">
+                    <div class="optiontitle">Adjust edge brightness</div>
+                    <input type="checkbox" id="adjustBrightness" class="optionbox">
+                </div>
+            </div>
+            <div class="buttonwrap">
+                <button onclick="unwatermark()" class="unwatermark">Unwatermark</button>
+                <div class="option multiple" id="confirm" style="display: none;">
+                    <div class="optiontitle">Save the changes?</div>
+                    <button onclick="confirmYes()"> Yes </button>
+                    <button onclick="confirmNo()"> No </button>
+                </div>
+            </div>
+            <div class="zoomindicator">
+                Zoom: <span id="zoom">100</span> &nbsp;
+                <span onclick="zoomImage(-25)">−</span>
+                <span onclick="resetZoom()">↺</span>
+                <span onclick="zoomImage(25)">+</span>
+                <div>
+                    <input type="checkbox" id="pixelatedZoom">
+                    Pixelated
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div id="imageContainer">
+                <img id="image" />
+                <img id="watermark" />
+            </div>
+        </div>
+        <script src="watermark.js"></script>
+    </body>
+</html>

@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    font-family: "Helvetica Now", "Helvetica Now Text", "Helvetica Neue", "Helvetica Neue LT Std", "Arial", "Liberation Sans", sans-serif;
+}
+body {
+    background-color: #333;
+    color: white;
+    padding: 0;
+    overflow: auto;
+}
+div.left {
+    background-color: #222;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 320px;
+    z-index: 3;
+    padding: 1em;
+}
+div.right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: calc(100% - 320px);
+    overflow: auto;
+}
+div.option {
+    position: relative;
+    margin-top: 1em;
+}
+div.optiontitle {
+    font-weight: bold;
+}
+div.single .optionbox {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+div.multiple .optionbox {
+    width: 100%;
+}
+
+div.optionscontainer {
+    overflow: auto;
+    max-height: calc(100% - 19em);
+    margin-bottom: 0.5em;
+}
+div.buttonwrap {
+    position: relative;
+    min-height: 4.5em;
+    max-height: calc(100% - 41em);
+    height: 100%;
+}
+div.buttonwrap > * {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+button.unwatermark {
+    font-size: 1em;
+    max-height: 2em;
+}
+#confirm {
+    max-height: 3.5em;
+    line-height: 150%;
+    text-align: center;
+}
+div.zoomindicator {
+    position: absolute;
+    bottom: 1em;
+    user-select: none;
+    width: 100%;
+}
+#zoom {
+    display: inline-block;
+    width: 3em;
+}
+#zoom::after {
+    content: "%";
+}
+div.zoomindicator > div {
+    display: inline-block;
+    position: absolute;
+    right: 2em;
+}
+.pixelated {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+img, canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#watermark {
+   /*z-index: 1; */
+}
+div#imageContainer {
+    position: relative;
+    margin: auto;
+}
+label, button {
+    padding: 0.3em;
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-right: 1em;
+    color: white;
+    background-color: #222;
+}
+div.left div input {
+    color: white;
+    background-color: #333;
+    width: 3em;
+}
+div.left input[type="file"] {
+    background-color: #222;
+    padding: 2px 0;
+}
+#topbar input {
+    display: none;
+}
+div#window {
+    border: 2px solid #54afff;
+    position: absolute;
+    display: block;
+    box-shadow: 0 0 15px 5px black;
+    z-index: 1;
+}
+div#windowSize {
+    display: block;
+    border: 5px solid #54afff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+    z-index: 2;
+}
